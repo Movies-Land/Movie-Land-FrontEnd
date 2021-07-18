@@ -1,0 +1,12 @@
+.images{
+    padding: 0px 10px;
+}
+.copyRight{
+    width: 30px;
+    text-align: center;
+}
+.links{
+    display: grid;
+grid-template-columns: repeat(auto-fill, minmax(100px,0px));
+grid-gap: 0px;
+}
