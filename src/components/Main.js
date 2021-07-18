@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Header from "./Header";
 
-export class Main extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+class Main extends React.Component {
+  render() {
+    return <div></div>;
+  }
 }
 
-export default Main
+export default Main;
