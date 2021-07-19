@@ -58,6 +58,22 @@ export class HomePage extends Component {
         this.getTrailer()
     }
 
+    getTrailerForSearch = async (index) => {
+        await this.setState({
+            index: index,
+            movieId: this.state.movieSearchData[index].id,
+            title: this.state.movieSearchData[index].title,
+            overview: this.state.movieSearchData[index].overview,
+            release_date: this.state.movieSearchData[index].release_date,
+            vote_average: this.state.movieSearchData[index].vote_average,
+            vote_count: this.state.movieSearchData[index].vote_count,
+            popularity: this.state.movieSearchData[index].popularity,
+            showModal: true
+        })
+        console.log(this.state.movieId);
+        this.getTrailer()
+    }
+
     getTrailer = async () => {
 
         let url = `http://localhost:3001/movieTrailer?movieId=${this.state.movieId}`
@@ -111,7 +127,8 @@ explore=async(event)=>{
                         )
                     })
                 }
-<SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerByMovieId={this.getTrailerByMovieId}/>
+<SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerByMovieId={this.getTrailerForSearch}/>
+
                 <MovieModal
                     title={this.state.title}
                     overview={this.state.overview}
