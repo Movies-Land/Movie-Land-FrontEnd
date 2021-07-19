@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Card } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Search from './Search';
+import SearchMovie from './SearchMovie';
 
 export class HomePage extends Component {
     constructor(props) {
@@ -12,6 +14,9 @@ export class HomePage extends Component {
             movieId: {},
             trailerKey: '',
             index: 0,
+            movieSearchData:{},
+            targetSearch:'',
+            showSearch:false,
         }
     }
 
@@ -46,9 +51,29 @@ export class HomePage extends Component {
         console.log(this.state.trailerKey);
     }
 
+
+explore=async(event)=>{
+    event.preventDefault();
+    await this.setState({
+        targetSearch:event.target.movie.value,
+    })
+    let url=`http://localhost:3001/searchForMovie?search=${this.state.targetSearch}`
+    let movieSearchData=await axios.get(url);
+
+    this.setState({
+        movieSearchData:movieSearchData.data,
+        showSearch:true,
+        
+    })
+    console.log(this.state.movieSearchData);
+}
+
+
+
     render() {
         return (
             <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center', flexBasis: '33.333333%' }}>
+                <Search explore={this.explore}/>
                 {this.state.show &&
                     this.state.movieData.map((movie, index) => {
                         return (
@@ -83,6 +108,7 @@ export class HomePage extends Component {
                         )
                     })
                 }
+<SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerByMovieId={this.getTrailerByMovieId}/>
             </div>
         )
     }
