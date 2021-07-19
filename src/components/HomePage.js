@@ -8,15 +8,13 @@ export class HomePage extends Component {
         super(props)
         this.state = {
             movieData: [],
-            show: false
+            show: false,
+            movieId:{}
         }
     }
 
     componentDidMount = async () => {
-
-        // const { user } = this.props.auth0;
-
-        let movieData = await axios.get(`http://localhost:3001/movie?userEmail=ibrahem.sarayrah@gmail.com`)
+        let movieData = await axios.get(`http://localhost:3001/popularMovie`)
         await this.setState({
             movieData: movieData.data,
             show: true
@@ -24,34 +22,58 @@ export class HomePage extends Component {
         console.log(movieData.data);
     }
 
+    // getTrailerByMovieId = (index) => {
+    //     let movieId = this.state.movieData.find(data =>{
+    //         if (data.id === id){
+    //             return data
+    //         }
+    //         console.log(data.id);
+    //     })
+
+    //             this.setState({
+    //         movieId:movieId
+    //     })
+    //     console.log(this.state.movieId);
+    // }
+
+    getTrailerByMovieId = async (index) => {
+        await this.setState({
+            index:index,
+            movieId:this.state.movieData[index].id
+        })
+        console.log(this.state.movieId);
+    }
+
     render() {
         return (
-            <div style={{display:'flex', flexWrap:'nowrap' , flexDirection:'row', justifyContent:'center'}}>
+            <div style={{display:'flex', flexWrap:'wrap' , flexDirection:'row', justifyContent:'center' , flexBasis:'33.333333%'}}>
                 {this.state.show &&
                     this.state.movieData.map((movie, index) => {
                         return (
 
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" src={movie.Poster} />
+                                        <Card key={index} style={{ width: '18rem' }}>
+                                            <Card.Img variant="top" 
+                                            onClick={() => this.getTrailerByMovieId(index)}
+                                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                                             <Card.Body>
-                                                <Card.Title>{movie.Title}</Card.Title>
+                                                <Card.Title>{movie.title}</Card.Title>
                                                 <Card.Text>
-                                                    {movie.Plot}
+                                                    {movie.overview}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    {movie.Released}
+                                                    {movie.release_date}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    {movie.Language}
+                                                    {movie.vote_average}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    {movie.Genre}
+                                                    {movie.vote_count}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    {movie.imdbRating}
+                                                    {movie.id}
                                                 </Card.Text>
-                                                <iframe width="400" height="200" src='https://www.youtube.com/embed/YIUPVpqNjppyCWOZfL-19bLb7uk'
-                                                title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                {/* <iframe width="400" height="200" src='https://www.youtube.com/embed/YIUPVpqNjppyCWOZfL-19bLb7uk'
+                                                title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
 
                                             </Card.Body>
 
