@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import HomePage from './HomePage'
 
@@ -9,6 +10,7 @@ export class Main extends Component {
             </>
         )
     }
+
 }
 
-export default Main
+export default Main;
