@@ -82,6 +82,7 @@ explore=async(event)=>{
     this.setState({
         movieSearchData:movieSearchData.data,
         showSearch:true,
+        show:false
         
     })
     console.log(this.state.movieSearchData);
