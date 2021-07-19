@@ -9,7 +9,8 @@ export class HomePage extends Component {
         this.state = {
             movieData: [],
             show: false,
-            movieId:{}
+            movieId:{},
+            index:0,
         }
     }
 
@@ -22,19 +23,6 @@ export class HomePage extends Component {
         console.log(movieData.data);
     }
 
-    // getTrailerByMovieId = (index) => {
-    //     let movieId = this.state.movieData.find(data =>{
-    //         if (data.id === id){
-    //             return data
-    //         }
-    //         console.log(data.id);
-    //     })
-
-    //             this.setState({
-    //         movieId:movieId
-    //     })
-    //     console.log(this.state.movieId);
-    // }
 
     getTrailerByMovieId = async (index) => {
         await this.setState({
