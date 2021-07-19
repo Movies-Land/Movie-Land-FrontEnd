@@ -1,0 +1,10 @@
+.header {
+  background-image: url("http://localhost:3000/static/media/poster1.8c9c8f61.jpg");
+}
+
+.Container {
+  background-image: url(http://localhost:3000/static/media/poster1.8c9c8f61.jpg);
+  height: 100px;
+  opacity: 0.8;
+  filter: brightness(0.5);
+}
