@@ -1,77 +1,45 @@
-
 import React from "react";
 // import { Row,Container,Column } from "react-bootstrap";
+import "../components(CSS)/Footer.css";
+import { Box, Container, Row, FooterLink } from "./FooterStyles";
 
-import {
-  Box,
-  Container,
-  Row,
-  Column,
-  FooterLink,
-  Heading,
-} from "./FooterStyles";
-  
+// import img
+import logoImg from "../img/Movie-Land-png-2.png";
+import fac from "../img/face1.png";
+import insta from "../img/insta.png";
+import twitt from "../img/twitter1.png";
+import github from "../img/githup.png";
+
+///////////////////////////////////////////////////////
+
 const Footer = () => {
   return (
-    <Box>
-     
-      <Container>
-          <Row className="copyRight">
-              <h5>
-                  @Copy Right Land-Movei
-              </h5>
-          </Row>
+    <Box className="Box">
+      <Container className="Container-footer">
         <Row className="links">
-          
-            {/* <Heading>About Us</Heading> */}
-            {/* <FooterLink href="#">About us</FooterLink> */}
-            {/* <FooterLink href="#">Vision</FooterLink> */}
-            {/* <FooterLink href="#">Testimonials</FooterLink> */}
-          
-          {/* <Column>
-            <Heading>Services</Heading>
-            <FooterLink href="#">Writing</FooterLink>
-            <FooterLink href="#">Internships</FooterLink>
-            <FooterLink href="#">Coding</FooterLink>
-            <FooterLink href="#">Teaching</FooterLink>
-          </Column> */}
-          {/* <Column>
-            <Heading>Contact Us</Heading>
-            <FooterLink href="#">Uttar Pradesh</FooterLink>
-            <FooterLink href="#">Ahemdabad</FooterLink>
-            <FooterLink href="#">Indore</FooterLink>
-            <FooterLink href="#">Mumbai</FooterLink>
-          </Column> */}
-         
-            {/* <Heading>Social Media</Heading> */}
-            <FooterLink href="#">
-             
-              <img className="images" src="http://oflisback.github.io/react-favicon/img/github.ico">
-              
-              </img>
+          {/*  copy Right  */}
+          <h5>@Copy Right Movei-Land </h5>
+          {/*  logo img   */}
+          <img className="logo-footer" src={logoImg} alt="logo img"></img>
+          {/*  links  */}
+          <div className="links-contaner">
+            <FooterLink
+              href="https://github.com/orgs/Movies-Land/dashboard"
+              className="FooterLink"
+            >
+              <img className="images" src={github}></img>
             </FooterLink>
-            <FooterLink href="#">
-        
-                  <img className="images" src="http://oflisback.github.io/react-favicon/img/github.ico">
-                  
-                  </img>
-              
+
+            <FooterLink href="#" className="FooterLink">
+              <img className="images" src={fac}></img>
             </FooterLink>
-            <FooterLink href="#">
-          
-            <img src="http://oflisback.github.io/react-favicon/img/github.ico">
-                  
-                  </img>
-              
+            <FooterLink href="#" className="FooterLink">
+              <img className="images" src={insta}></img>
             </FooterLink>
-            <FooterLink href="#">
-           
-            <img className="images" src="http://oflisback.github.io/react-favicon/img/github.ico">
-                  
-                  </img>
-              
+            <FooterLink href="#" className="FooterLink">
+              <img className="images" src={twitt}></img>
             </FooterLink>
-          
+          </div>
         </Row>
       </Container>
     </Box>
