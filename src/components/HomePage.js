@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Card } from 'react-bootstrap'
+import MovieModal from './MovieModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './Search';
 import SearchMovie from './SearchMovie';
@@ -11,12 +12,23 @@ export class HomePage extends Component {
         this.state = {
             movieData: [],
             show: false,
-            movieId: {},
+            movieId: '',
             trailerKey: '',
             index: 0,
+
             movieSearchData:{},
             targetSearch:'',
             showSearch:false,
+
+            title: '',
+            overview: '',
+            release_date: '',
+            vote_average: '',
+            vote_count: '',
+            popularity: '',
+            showModal: '',
+
+
         }
     }
 
@@ -33,7 +45,14 @@ export class HomePage extends Component {
     getTrailerByMovieId = async (index) => {
         await this.setState({
             index: index,
-            movieId: this.state.movieData[index].id
+            movieId: this.state.movieData[index].id,
+            title: this.state.movieData[index].title,
+            overview: this.state.movieData[index].overview,
+            release_date: this.state.movieData[index].release_date,
+            vote_average: this.state.movieData[index].vote_average,
+            vote_count: this.state.movieData[index].vote_count,
+            popularity: this.state.movieData[index].popularity,
+            showModal: true
         })
         console.log(this.state.movieId);
         this.getTrailer()
@@ -69,6 +88,11 @@ explore=async(event)=>{
 }
 
 
+    handleClose = () => {
+        this.setState({
+            showModal: false,
+        })
+    }
 
     render() {
         return (
@@ -82,33 +106,23 @@ explore=async(event)=>{
                                 <Card.Img variant="top"
                                     onClick={() => this.getTrailerByMovieId(index)}
                                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-                                <Card.Body>
-                                    <Card.Title>{movie.title}</Card.Title>
-                                    <Card.Text>
-                                        {movie.overview}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {movie.release_date}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {movie.vote_average}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {movie.vote_count}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {movie.id}
-                                    </Card.Text>
-                                    <iframe width="400" height="200" src={`https://www.youtube.com/embed/${this.state.trailerKey}`}
-                                        title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-
-                                </Card.Body>
-
                             </Card>
                         )
                     })
                 }
 <SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerByMovieId={this.getTrailerByMovieId}/>
+                <MovieModal
+                    title={this.state.title}
+                    overview={this.state.overview}
+                    release_date={this.state.release_date}
+                    vote_average={this.state.vote_average}
+                    vote_count={this.state.vote_count}
+                    popularity={this.state.popularity}
+                    movieId={this.state.movieId}
+                    trailerKey={this.state.trailerKey}
+                    show={this.state.showModal}
+                    handleClose={this.handleClose}
+                />
             </div>
         )
     }
