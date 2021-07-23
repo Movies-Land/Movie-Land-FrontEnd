@@ -9,7 +9,8 @@ import LogoutButton from "./LogoutButton";
 import "../components(CSS)/Header.css";
 // import img
 import logoImg from "../img/Movie-Land-png-2.png";
-// import backgroungImg from "../img/poster1.jpg";
+import backgroungImg from "../img/poster1.jpg";
+import Login from './Login'
 
 // //////////////////////////////////////////////
 
@@ -21,12 +22,7 @@ class Header extends React.Component {
       <div className="header">
         {isAuthenticated === true ? <LogoutButton /> : ""}
 
-
-                {/*  */}
-        );
-    
-
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="nav-bar">
           <Container className="Container">
             <Navbar.Brand href="#home">
               <img src={logoImg} alt="Logo" style={{ width: "100px" }} />
@@ -37,7 +33,7 @@ class Header extends React.Component {
                 <Nav.Link href="#home">Home</Nav.Link>
                 <Nav.Link href="#link">Profile</Nav.Link>
                 <Nav.Link href="#link">Contact Us</Nav.Link>
-                <Nav.Link href="#link">Login</Nav.Link>
+                <Login   />
               </Nav>
             </Navbar.Collapse>
           </Container>
