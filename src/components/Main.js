@@ -5,6 +5,8 @@ import Profile from './Profile';
 import Login from './Login';
 import HomePage from './HomePage'
 
+import "../components(CSS)/Main.css";
+
 
 export class Main extends Component {
     render() {
@@ -16,6 +18,7 @@ export class Main extends Component {
 
                 {isAuthenticated === true ? <Profile /> : <Login />}
                 <HomePage />
+               
             </div>
 
         )

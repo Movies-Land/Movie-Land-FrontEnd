@@ -1,6 +1,6 @@
 .Box {
   padding: 10px 5px;
-  background: #e4e9ec;
+  background: #242525;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -28,7 +28,7 @@
   justify-content: space-evenly;
   align-items: center; */
 
-  background: #b4bcc4;
+  background: #373c41;
   width: 100%;
 }
 

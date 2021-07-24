@@ -12,5 +12,17 @@
 .nav-bar{
   height: 90px;
   /* background-image: url('https://store-images.microsoft.com/image/apps.826.9007199266556636.0d2bcfd7-c343-4ac1-b971-62082184a5a6.f724aab2-3b6f-4519-b6a4-1201dbd96989?w=672&h=378&q=80&mode=letterbox&background=%23FFE4E4E4&format=jpg');
-  background-image: url('../img/poster1.jpg'); */
+  background-image: url('../img/img2.jpg'); */
+  
+}
+.bg-light {
+  background-color: #070707!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-nav :hover.nav-link {
+  color: red;
 }
