@@ -1,24 +1,31 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Card } from 'react-bootstrap'
 import MovieModal from './MovieModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './Search';
 import SearchMovie from './SearchMovie';
+import PopularMovie from './PopularMovie';
+import NowPlayingMovie from './NowPlayingMovie';
+import TopRatedMovie from './TopRatedMovie';
+import UpcomingMovie from './UpcomingMovie';
+import { MovieStyle } from '../components(CSS)/MovieStyle';
 
 export class HomePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            movieData: [],
+            popularMovie: [],
+            nowPlayingMovie: [],
+            topRatedMovie: [],
+            upcomingMovie: [],
             show: false,
             movieId: '',
             trailerKey: '',
             index: 0,
 
-            movieSearchData:{},
-            targetSearch:'',
-            showSearch:false,
+            movieSearchData: {},
+            targetSearch: '',
+            showSearch: false,
 
             title: '',
             overview: '',
@@ -33,25 +40,80 @@ export class HomePage extends Component {
     }
 
     componentDidMount = async () => {
-        let movieData = await axios.get(`http://localhost:3001/popularMovie`)
+        let popularMovie = await axios.get(`http://localhost:3001/popularMovie`)
+        let nowPlayingMovie = await axios.get(`http://localhost:3001/nowPlayingMovie`)
+        let topRatedMovie = await axios.get(`http://localhost:3001/topRatedMovie`)
+        let upcomingMovie = await axios.get(`http://localhost:3001/upcomingMovie`)
+
         await this.setState({
-            movieData: movieData.data,
+            popularMovie: popularMovie.data,
+            nowPlayingMovie: nowPlayingMovie.data,
+            topRatedMovie: topRatedMovie.data,
+            upcomingMovie: upcomingMovie.data,
             show: true
         })
-        console.log(movieData.data);
     }
 
 
-    getTrailerByMovieId = async (index) => {
+    getTrailerForPopularMovie = async (index) => {
         await this.setState({
             index: index,
-            movieId: this.state.movieData[index].id,
-            title: this.state.movieData[index].title,
-            overview: this.state.movieData[index].overview,
-            release_date: this.state.movieData[index].release_date,
-            vote_average: this.state.movieData[index].vote_average,
-            vote_count: this.state.movieData[index].vote_count,
-            popularity: this.state.movieData[index].popularity,
+            movieId: this.state.popularMovie[index].id,
+            title: this.state.popularMovie[index].title,
+            overview: this.state.popularMovie[index].overview,
+            release_date: this.state.popularMovie[index].release_date,
+            vote_average: this.state.popularMovie[index].vote_average,
+            vote_count: this.state.popularMovie[index].vote_count,
+            popularity: this.state.popularMovie[index].popularity,
+            showModal: true
+        })
+        console.log(this.state.movieId);
+        this.getTrailer()
+    }
+
+
+    getTrailerForNowPlayingMovie = async (index) => {
+        await this.setState({
+            index: index,
+            movieId: this.state.nowPlayingMovie[index].id,
+            title: this.state.nowPlayingMovie[index].title,
+            overview: this.state.nowPlayingMovie[index].overview,
+            release_date: this.state.nowPlayingMovie[index].release_date,
+            vote_average: this.state.nowPlayingMovie[index].vote_average,
+            vote_count: this.state.nowPlayingMovie[index].vote_count,
+            popularity: this.state.nowPlayingMovie[index].popularity,
+            showModal: true
+        })
+        console.log(this.state.movieId);
+        this.getTrailer()
+    }
+
+    getTrailerForNowPlayingMovie = async (index) => {
+        await this.setState({
+            index: index,
+            movieId: this.state.nowPlayingMovie[index].id,
+            title: this.state.nowPlayingMovie[index].title,
+            overview: this.state.nowPlayingMovie[index].overview,
+            release_date: this.state.nowPlayingMovie[index].release_date,
+            vote_average: this.state.nowPlayingMovie[index].vote_average,
+            vote_count: this.state.nowPlayingMovie[index].vote_count,
+            popularity: this.state.nowPlayingMovie[index].popularity,
+            showModal: true
+        })
+        console.log(this.state.movieId);
+        this.getTrailer()
+    }
+
+    getTrailerForUpcomingMovie = async (index) => {
+        await this.setState({
+            index: index,
+            movieId: this.state.upcomingMovie[index].id,
+            title: this.state.upcomingMovie[index].title,
+            overview: this.state.upcomingMovie[index].overview,
+            release_date: this.state.upcomingMovie[index].release_date,
+            vote_average: this.state.upcomingMovie[index].vote_average,
+            vote_count: this.state.upcomingMovie[index].vote_count,
+            popularity: this.state.upcomingMovie[index].popularity,
             showModal: true
         })
         console.log(this.state.movieId);
@@ -87,22 +149,22 @@ export class HomePage extends Component {
     }
 
 
-explore=async(event)=>{
-    event.preventDefault();
-    await this.setState({
-        targetSearch:event.target.movie.value,
-    })
-    let url=`http://localhost:3001/searchForMovie?search=${this.state.targetSearch}`
-    let movieSearchData=await axios.get(url);
+    explore = async (event) => {
+        event.preventDefault();
+        await this.setState({
+            targetSearch: event.target.movie.value,
+        })
+        let url = `http://localhost:3001/searchForMovie?search=${this.state.targetSearch}`
+        let movieSearchData = await axios.get(url);
 
-    this.setState({
-        movieSearchData:movieSearchData.data,
-        showSearch:true,
-        show:false
-        
-    })
-    console.log(this.state.movieSearchData);
-}
+        this.setState({
+            movieSearchData: movieSearchData.data,
+            showSearch: true,
+            show: false
+
+        })
+        console.log(this.state.movieSearchData);
+    }
 
 
     handleClose = () => {
@@ -113,21 +175,26 @@ explore=async(event)=>{
 
     render() {
         return (
-            <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center', flexBasis: '33.333333%' }}>
-                <Search explore={this.explore}/>
-                {this.state.show &&
-                    this.state.movieData.map((movie, index) => {
-                        return (
+            <>
+                <Search explore={this.explore} />
 
-                            <Card key={index} style={{ width: '18rem' }}>
-                                <Card.Img variant="top"
-                                    onClick={() => this.getTrailerByMovieId(index)}
-                                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-                            </Card>
-                        )
-                    })
-                }
-<SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerByMovieId={this.getTrailerForSearch}/>
+                <MovieStyle>
+                    <PopularMovie popularMovie={this.state.popularMovie} show={this.state.show} getTrailerForPopularMovie={this.getTrailerForPopularMovie} />
+                </MovieStyle>
+
+                <MovieStyle>
+                    <NowPlayingMovie nowPlayingMovie={this.state.nowPlayingMovie} show={this.state.show} getTrailerForNowPlayingMovie={this.getTrailerForNowPlayingMovie} />
+                </MovieStyle>
+
+                <MovieStyle>
+                    <TopRatedMovie topRatedMovie={this.state.topRatedMovie} show={this.state.show} getTrailerForTopRatedMovie={this.getTrailerForTopRatedMovie} />
+                </MovieStyle>
+
+                <MovieStyle>
+                    <UpcomingMovie upcomingMovie={this.state.upcomingMovie} show={this.state.show} getTrailerForUpcomingMovie={this.getTrailerForUpcomingMovie} />
+                </MovieStyle>
+
+                <SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerForSearch={this.getTrailerForSearch} />
 
                 <MovieModal
                     title={this.state.title}
@@ -141,7 +208,7 @@ explore=async(event)=>{
                     show={this.state.showModal}
                     handleClose={this.handleClose}
                 />
-            </div>
+            </>
         )
     }
 }

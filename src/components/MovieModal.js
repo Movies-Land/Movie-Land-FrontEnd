@@ -14,8 +14,8 @@ export class MovieModal extends Component {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
                     </iframe>
                     <Tabs defaultActiveKey="Overview" id="uncontrolled-tab-example" className="mb-3">
-                        <Tab eventKey="Overview" title="Overview">
-                            {this.props.overview}
+                        <Tab eventKey="Overview" title="Overview" >
+                            <p className='overview'> {this.props.overview} </p>
                         </Tab>
                         <Tab eventKey="Details" title="Details">
                             <ListGroup className="list-group-flush">
