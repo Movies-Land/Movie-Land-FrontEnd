@@ -5,7 +5,10 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
-
+import { HomePage } from "./components/HomePage";
+import { withAuth0 } from '@auth0/auth0-react';
+import Login from "./components/Login";
+import Profile from "./components/Profile";
 
 
 class App extends React.Component {
@@ -18,9 +21,15 @@ class App extends React.Component {
           <Switch>
             {/* we need to add neame componant ..... */}
 
-            <Route exact path="./Main">
-              <Main></Main>
+            <Route exact path="./HomePage">
+              <HomePage/>
             </Route>
+            {/* <Route exact path="./Profile"> */}
+              {/* <Profile/> */}
+
+            {this.props.auth0.isAuthenticated ? <Profile /> : <Login />}
+            {/* </Route> */}
+        
           
           </Switch>
           <Main />
@@ -33,4 +42,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+export default withAuth0(App);

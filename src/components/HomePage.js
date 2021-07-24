@@ -9,6 +9,7 @@ import NowPlayingMovie from './NowPlayingMovie';
 import TopRatedMovie from './TopRatedMovie';
 import UpcomingMovie from './UpcomingMovie';
 import { MovieStyle } from '../components(CSS)/MovieStyle';
+import { withAuth0 } from '@auth0/auth0-react';
 
 export class HomePage extends Component {
     constructor(props) {
@@ -174,7 +175,10 @@ export class HomePage extends Component {
     }
 
     render() {
+        // const { user, isAuthenticated } = this.props.auth0;
+        
         return (
+            
             <>
                 <Search explore={this.explore} />
 
@@ -213,4 +217,4 @@ export class HomePage extends Component {
     }
 }
 
-export default HomePage
+export default  withAuth0(HomePage)

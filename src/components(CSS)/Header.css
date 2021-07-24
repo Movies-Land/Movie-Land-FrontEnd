@@ -1,6 +1,6 @@
 .header {
-  /* background-image: url('../img/posters.jpg');
-  width: 100%; */
+  margin-bottom: 471px;
+  display: flex;
 }
 
 .Container {
@@ -10,13 +10,13 @@
   /* filter: brightness(0.5); */
 }
 .nav-bar{
-  height: 90px;
-  /* background-image: url('https://store-images.microsoft.com/image/apps.826.9007199266556636.0d2bcfd7-c343-4ac1-b971-62082184a5a6.f724aab2-3b6f-4519-b6a4-1201dbd96989?w=672&h=378&q=80&mode=letterbox&background=%23FFE4E4E4&format=jpg');
-  background-image: url('../img/img2.jpg'); */
+  height: 122px;
+width: 100%;
   
 }
 .bg-light {
-  background-color: #070707!important;
+  background-color: #030405!important;
+    opacity: .8;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -25,4 +25,26 @@
 
 .navbar-light .navbar-nav :hover.nav-link {
   color: red;
+}
+.logoImg{
+  width: 160px;
+    /* margin-left: -88px; */
+    display: flex;
+}
+.logoImg .img{
+width: 160px;
+}
+.logInButton{
+  position: absolute;
+    right: 70px;
+    width: 111px;
+    /* height: 58px; */
+    border-radius: 17px;
+    
+    font-size: 20px;
+    font-weight: 600;
+}
+.logInButton:hover{
+  color: rgb(12, 152, 170);
+ 
 }
