@@ -1,5 +1,5 @@
 .header {
-  margin-bottom: 471px;
+  margin-bottom: 500px;
   display: flex;
 }
 
@@ -9,14 +9,13 @@
   /* opacity: 0.8; */
   /* filter: brightness(0.5); */
 }
-.nav-bar{
+.nav-bar {
   height: 122px;
-width: 100%;
-  
+  width: 100%;
 }
 .bg-light {
-  background-color: #030405!important;
-    opacity: .8;
+  background-color: #030405 !important;
+  opacity: 0.8;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -26,25 +25,24 @@ width: 100%;
 .navbar-light .navbar-nav :hover.nav-link {
   color: red;
 }
-.logoImg{
+.logoImg {
   width: 160px;
-    /* margin-left: -88px; */
-    display: flex;
+  /* margin-left: -88px; */
+  display: flex;
 }
-.logoImg .img{
-width: 160px;
+.logoImg .img {
+  width: 160px;
 }
-.logInButton{
+.logInButton {
   position: absolute;
-    right: 70px;
-    width: 111px;
-    /* height: 58px; */
-    border-radius: 17px;
-    
-    font-size: 20px;
-    font-weight: 600;
+  right: 70px;
+  width: 111px;
+  /* height: 58px; */
+  border-radius: 17px;
+
+  font-size: 20px;
+  font-weight: 600;
 }
-.logInButton:hover{
+.logInButton:hover {
   color: rgb(12, 152, 170);
- 
 }
