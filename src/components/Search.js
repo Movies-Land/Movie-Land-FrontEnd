@@ -7,7 +7,7 @@ export class Search extends Component {
     return (
       <div>
         <Form
-          style={{ position: "absolute", top: "55%", left: "26%" }}
+          style={{ position: "absolute", top: "55%", left: "29%" }}
           onSubmit={this.props.explore}
           value="get movie"
           className="formStyle"
