@@ -1,7 +1,7 @@
 .Box {
   padding: 10px 5px;
   background: #242525;
-  position:relative;
+  position: relative;
   bottom: 0;
   width: 100%;
   /*  */
@@ -44,6 +44,9 @@
 .images {
   padding: 0px 10px;
   width: 70px;
+}
+.images:hover {
+  /* color: #d57932; */
 }
 
 /* .xosqW {
