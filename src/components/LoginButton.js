@@ -11,7 +11,7 @@ function LoginButton() {
   return !isAuthenticated && (
     <>
     
-    <Button variant="warning" onClick={loginWithRedirect}>Log in</Button>{' '}
+    <Button variant="warning" className="logInButton" onClick={loginWithRedirect}>Log in</Button>{' '}
     </>
   );
 }

@@ -1,7 +1,7 @@
 .Box {
   padding: 10px 5px;
   background: #242525;
-  position: absolute;
+  position:relative;
   bottom: 0;
   width: 100%;
   /*  */
