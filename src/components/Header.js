@@ -1,22 +1,27 @@
-
 import React, { Component } from "react";
 // import "../components(CSS)/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { withAuth0 } from '@auth0/auth0-react';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+import { withAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import "../components(CSS)/Header.css";
+// import img
+import logoImg from "../img/Movie-Land-png-2.png";
+import backgroungImg from "../img/poster1.jpg";
+import Login from './Login'
 
 // //////////////////////////////////////////////
 
 class Header extends React.Component {
-    render() {
-        const { isAuthenticated } = this.props.auth0;
+  render() {
+    const { isAuthenticated } = this.props.auth0;
 
-        return (
-            <div className="header">
-                {isAuthenticated === true ? <LogoutButton /> : ''}
+    return (
+      <div className="header">
+        {isAuthenticated === true ? <LogoutButton /> : ""}
+
 
                 <Navbar bg="light" expand="lg">
                     <Container>
@@ -46,6 +51,7 @@ class Header extends React.Component {
             </div>
         );
     }
+
 }
 
-export default withAuth0(Header)
+export default withAuth0(Header);
