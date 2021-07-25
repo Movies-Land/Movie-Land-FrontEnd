@@ -1,7 +1,53 @@
 import React, { Component } from 'react'
 import { Modal, Button, Card, ListGroup, ListGroupItem, Tab, Tabs, } from 'react-bootstrap'
+import { withAuth0 } from '@auth0/auth0-react';
+import axios from 'axios'
+
 
 export class MovieModal extends Component {
+
+
+    constructor(props) {
+        super(props)
+        this.state = {
+
+            currentMovieObject: {},
+            favoriteMovies: [],
+
+        }
+    }
+
+
+
+    addToFavorites = async () => {
+        await this.setState({
+            currentMovieObject: {
+
+                email: this.props.auth0.user.email,
+                title: this.props.title,
+                overview: this.props.overview,
+                release_date: this.props.release_date,
+                vote_average: this.props.vote_average,
+                vote_count: this.props.vote_count,
+                popularity: this.props.popularity,
+                movieId: this.props.movieId,
+                trailerKey: this.props.trailerKey,
+
+            }
+        })
+
+        let favoriteMovies = await axios.post('http://localhost:3001/favoriteMovies', this.state.currentMovieObject);
+
+        this.setState({
+            favoriteMovies: favoriteMovies.data,
+        })
+
+        console.log(this.state.favoriteMovies)
+
+    }
+
+
+
     render() {
         return (
             <Modal show={this.props.show} onHide={this.props.handleClose}>
@@ -32,10 +78,13 @@ export class MovieModal extends Component {
                     <Button variant="secondary" onClick={this.props.handleClose}>
                         Close
                     </Button>
+                    <Button variant="secondary" onClick={this.addToFavorites}>
+                        Add To Favorites
+                    </Button>
                 </Modal.Footer>
             </Modal>
         )
     }
 }
 
-export default MovieModal
+export default withAuth0(MovieModal)
