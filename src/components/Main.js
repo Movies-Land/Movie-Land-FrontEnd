@@ -14,19 +14,47 @@ import {
 
 
 export class Main extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            showSearch: false,
+            show: false
+        }
+    }
+
+    handleShowSearch = () => {
+        this.setState({
+            showSearch: true,
+            show: false
+        })
+    }
+
+    handleCloseSearch = () => {
+        this.setState({
+            showSearch: false,
+            show: true,
+        })
+    }
+
+    handleShowHomePage = () => {
+        this.setState({
+            show: true
+        })
+    }
+
     render() {
-    
+
 
         return (
 
             <div>
                 <Router>
-                    <Header />
+                    <Header handleCloseSearch={this.handleCloseSearch} />
 
                     <Switch>
-              
+
                         <Route exact path="/">
-                            <HomePage/>
+                            <HomePage handleShowSearch={this.handleShowSearch} showSearch={this.state.showSearch} show={this.state.show} handleShowHomePage={this.handleShowHomePage} />
                         </Route>
 
                         <Route exact path="/Profile">
