@@ -9,11 +9,14 @@ export class PopularMovie extends Component {
   render() {
     let settings = {
       dots: true,
-      infinite: false,
+      lazyLoad: true,
+      infinite: true,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
       initialSlide: 0,
+      // autoplay: true,
+      // autoplaySpeed: 2000,
       responsive: [
         {
           breakpoint: 1024,

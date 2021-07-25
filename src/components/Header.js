@@ -7,6 +7,7 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import "../components(CSS)/Header.css";
 import logoImg from "../img/movie-land-white-text.png";
+
 class Header extends React.Component {
   render() {
     return (
@@ -21,7 +22,7 @@ class Header extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Link className="links-nav" to="/">
+                <Link onClick={this.props.handleCloseSearch} className="links-nav" to="/">
                   Home
                 </Link>
 
@@ -31,8 +32,8 @@ class Header extends React.Component {
                   </Link>
                 )}
 
-                <Link className="links-nav" to="/ContactUs">
-                  ContactUs
+                <Link className="links-nav" to="/About Us">
+                  About Us
                 </Link>
 
                 {this.props.auth0.isAuthenticated ? (

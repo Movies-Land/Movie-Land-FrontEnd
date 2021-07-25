@@ -19,14 +19,12 @@ export class HomePage extends Component {
             nowPlayingMovie: [],
             topRatedMovie: [],
             upcomingMovie: [],
-            show: false,
             movieId: '',
             trailerKey: '',
             index: 0,
 
             movieSearchData: {},
             targetSearch: '',
-            showSearch: false,
 
             title: '',
             overview: '',
@@ -51,8 +49,8 @@ export class HomePage extends Component {
             nowPlayingMovie: nowPlayingMovie.data,
             topRatedMovie: topRatedMovie.data,
             upcomingMovie: upcomingMovie.data,
-            show: true
         })
+        this.props.handleShowHomePage();
     }
 
 
@@ -160,11 +158,10 @@ export class HomePage extends Component {
 
         this.setState({
             movieSearchData: movieSearchData.data,
-            showSearch: true,
-            show: false
 
         })
         console.log(this.state.movieSearchData);
+        this.props.handleShowSearch();
     }
 
 
@@ -175,30 +172,29 @@ export class HomePage extends Component {
     }
 
     render() {
-        // const { user, isAuthenticated } = this.props.auth0;
-        
+  
         return (
             
             <>
                 <Search explore={this.explore} />
 
                 <MovieStyle>
-                    <PopularMovie popularMovie={this.state.popularMovie} show={this.state.show} getTrailerForPopularMovie={this.getTrailerForPopularMovie} />
+                    <PopularMovie popularMovie={this.state.popularMovie} show={this.props.show} getTrailerForPopularMovie={this.getTrailerForPopularMovie} />
                 </MovieStyle>
 
                 <MovieStyle>
-                    <NowPlayingMovie nowPlayingMovie={this.state.nowPlayingMovie} show={this.state.show} getTrailerForNowPlayingMovie={this.getTrailerForNowPlayingMovie} />
+                    <NowPlayingMovie nowPlayingMovie={this.state.nowPlayingMovie} show={this.props.show} getTrailerForNowPlayingMovie={this.getTrailerForNowPlayingMovie} />
                 </MovieStyle>
 
                 <MovieStyle>
-                    <TopRatedMovie topRatedMovie={this.state.topRatedMovie} show={this.state.show} getTrailerForTopRatedMovie={this.getTrailerForTopRatedMovie} />
+                    <TopRatedMovie topRatedMovie={this.state.topRatedMovie} show={this.props.show} getTrailerForTopRatedMovie={this.getTrailerForTopRatedMovie} />
                 </MovieStyle>
 
                 <MovieStyle>
-                    <UpcomingMovie upcomingMovie={this.state.upcomingMovie} show={this.state.show} getTrailerForUpcomingMovie={this.getTrailerForUpcomingMovie} />
+                    <UpcomingMovie upcomingMovie={this.state.upcomingMovie} show={this.props.show} getTrailerForUpcomingMovie={this.getTrailerForUpcomingMovie} />
                 </MovieStyle>
 
-                <SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.state.showSearch} getTrailerForSearch={this.getTrailerForSearch} />
+                <SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.props.showSearch} getTrailerForSearch={this.getTrailerForSearch} />
 
                 <MovieModal
                     title={this.state.title}
