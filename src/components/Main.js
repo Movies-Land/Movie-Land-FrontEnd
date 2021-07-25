@@ -11,6 +11,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import AboutUs from './AboutUs';
 
 
 export class Main extends Component {
@@ -60,7 +61,9 @@ export class Main extends Component {
                         <Route exact path="/Profile">
                             {this.props.auth0.isAuthenticated ? <Profile /> : <Login />}
                         </Route>
-
+                        <Route exact path="/AboutUs">
+                           <AboutUs />
+                        </Route>
                     </Switch>
                     <Footer />
                 </Router>

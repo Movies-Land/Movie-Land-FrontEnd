@@ -32,7 +32,7 @@ class Header extends React.Component {
                   </Link>
                 )}
 
-                <Link className="links-nav" to="/About Us">
+                <Link className="links-nav" to="/AboutUs">
                   About Us
                 </Link>
 
