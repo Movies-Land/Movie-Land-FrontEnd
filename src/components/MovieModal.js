@@ -1,12 +1,21 @@
-import React, { Component } from 'react'
-import { Modal, Button, Card, ListGroup, ListGroupItem, Tab, Tabs, } from 'react-bootstrap'
+
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../components(CSS)/modal.css";
+
+import {
+  Modal,
+  Button,
+  ListGroup,
+  ListGroupItem,
+  Tab,
+  Tabs,
+} from "react-bootstrap";
+
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios'
 
-
 export class MovieModal extends Component {
-
-
     constructor(props) {
         super(props)
         this.state = {
@@ -50,50 +59,73 @@ export class MovieModal extends Component {
         console.log(this.state.favoriteMovies)
 
     }
+  render() {
+    return (
+      <Modal
+        style={{}}
+        show={this.props.show}
+        onHide={this.props.handleClose}
+        className="main-modal"
+      >
+        <Modal.Body className="body-modal" style={{ padding: "0rem" }}>
+          <iframe
+            className="iframeV"
+            width="100%"
+            height="200"
+            src={`https://www.youtube.com/embed/${this.props.trailerKey}`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
 
-
-
-    render() {
-
-        return (
-            <Modal show={this.props.show} onHide={this.props.handleClose}>
-                <Modal.Header>
-                    <Card.Title>{this.props.title}</Card.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <iframe width="400" height="200" src={`https://www.youtube.com/embed/${this.props.trailerKey}`}
-                        title="YouTube video player" frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-                    </iframe>
-                    <Tabs defaultActiveKey="Overview" id="uncontrolled-tab-example" className="mb-3">
-                        <Tab eventKey="Overview" title="Overview" >
-                            <p className='overview'> {this.props.overview} </p>
-                        </Tab>
-                        <Tab eventKey="Details" title="Details">
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>{`Release Date: ${this.props.release_date}`}</ListGroupItem>
-                                <ListGroupItem>{`Popularity: ${this.props.popularity}`}</ListGroupItem>
-                                <ListGroupItem>{`Vote Count: ${this.props.vote_count}`}</ListGroupItem>
-                                <ListGroupItem>{`Average Vote: ${this.props.vote_average}`}</ListGroupItem>
-                            </ListGroup>
-                        </Tab>
-                    </Tabs>
-
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={this.props.handleClose}>
-                        Close
-                    </Button>
-                    {/* this.state.favoriteMovies.filter(element => { if(this.state.currentMovieObject.movieId === element.movieId ){return true} else {return false}} )? */}
-                   {this.state.showFav && this.props.auth0.isAuthenticated ?  <Button variant="secondary" onClick={this.addToFavorites}>
+          <Tabs
+            defaultActiveKey="Overview"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+            // style={{ color: "#201e23 " }}
+          >
+            <Tab eventKey="Overview" title="Overview" className="tap">
+              <h2 className="movie-title">{this.props.title}</h2>
+              <p className="overview p-modal"> {this.props.overview} </p>
+            </Tab>
+            <Tab eventKey="Details" title="Details" className="tap">
+              <h2 className="movie-title">{this.props.title}</h2>
+              <ListGroup>
+                <ListGroupItem
+                  style={{ color: "#201e23 ", backgroundColor: "#d0d0d0 " }}
+                  className="list-group-flush"
+                >{`Release Date: ${this.props.release_date}`}</ListGroupItem>
+                <ListGroupItem
+                  style={{ color: "#201e23 ", backgroundColor: "#d0d0d0 " }}
+                  className="list-group-flush"
+                >{`Popularity: ${this.props.popularity}`}</ListGroupItem>
+                <ListGroupItem
+                  style={{ color: "#201e23 ", backgroundColor: "#d0d0d0 " }}
+                  className="list-group-flush"
+                >{`Vote Count: ${this.props.vote_count}`}</ListGroupItem>
+                <ListGroupItem
+                  style={{ color: "#201e23 ", backgroundColor: "#d0d0d0 " }}
+                  className="list-group-flush"
+                >{`Average Vote: ${this.props.vote_average}`}</ListGroupItem>
+              </ListGroup>
+            </Tab>
+          </Tabs>
+        <Modal.Footer
+          className="footer-modal"
+          style={{ borderTop: "0px solid #dee2e6" }}
+        >
+          <Button variant="secondary" onClick={this.props.handleClose}>
+            Close
+          </Button>
+          {this.state.showFav && this.props.auth0.isAuthenticated ?  <Button variant="secondary" onClick={this.addToFavorites}>
                         Add To Favorites
                     </Button>:''} 
-
-                   
-                </Modal.Footer>
-            </Modal>
-        )
-    }
+        </Modal.Footer>
+        </Modal.Body>
+      </Modal>
+    );
+  }
 }
 
-export default withAuth0(MovieModal)
+export default withAuth0(MovieModal);

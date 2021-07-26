@@ -10,7 +10,7 @@ export const MovieStyle = styled.div`
     margin-top: 10px;
   }
   .slick-arrow:hover,
-  .slick-arrow:active{
-    background-color: #38A7F2 !important;
+  .slick-arrow:active {
+    background-color: #38a7f2 !important;
   }
 `;

@@ -48,7 +48,7 @@ const Footer = () => {
                 {/* <img className="images" src={github}></img> */}
               </FooterLink>
 
-              <FooterLink href="#" className="FooterLink">
+              <FooterLink href="https://web.facebook.com" className="FooterLink">
                 <FontAwesomeIcon
                   icon={["fab", "facebook"]}
                   className="FooterLink"
@@ -56,7 +56,7 @@ const Footer = () => {
 
                 {/* <img className="images" src={fac}></img> */}
               </FooterLink>
-              <FooterLink href="#" className="FooterLink">
+              <FooterLink href="https://twitter.com/" className="FooterLink">
                 <FontAwesomeIcon
                   icon={["fab", "twitter"]}
                   className="FooterLink"
@@ -64,7 +64,7 @@ const Footer = () => {
 
                 {/* <img className="images" src={insta}></img> */}
               </FooterLink>
-              <FooterLink href="#" className="FooterLink">
+              <FooterLink href="https://instagram.com/" className="FooterLink">
                 <FontAwesomeIcon
                   icon={["fab", "instagram"]}
                   className="FooterLink"

@@ -14,7 +14,7 @@ class Header extends React.Component {
       <div className="header">
         <Navbar bg="light" expand="lg" className="nav-bar">
           <Container className="Container">
-            <Link to="/">
+            <Link onClick={this.props.handleCloseSearch} to="/">
               <div className="logoImg">
                 <img src={logoImg} alt="Logo" style={{ width: "160px" }} />
               </div>
@@ -32,7 +32,7 @@ class Header extends React.Component {
                   </Link>
                 )}
 
-                <Link className="links-nav" to="/About Us">
+                <Link className="links-nav" to="/AboutUs">
                   About Us
                 </Link>
 
