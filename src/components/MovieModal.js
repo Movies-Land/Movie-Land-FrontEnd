@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "../components(CSS)/modal.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../components(CSS)/modal.css";
 import {
   Modal,
   Button,
-  Card,
+  
   ListGroup,
   ListGroupItem,
   Tab,
@@ -64,7 +64,6 @@ export class MovieModal extends Component {
               </ListGroup>
             </Tab>
           </Tabs>
-        </Modal.Body>
         <Modal.Footer
           className="footer-modal"
           style={{ borderTop: "0px solid #dee2e6" }}
@@ -73,6 +72,7 @@ export class MovieModal extends Component {
             Close
           </Button>
         </Modal.Footer>
+        </Modal.Body>
       </Modal>
     );
   }
