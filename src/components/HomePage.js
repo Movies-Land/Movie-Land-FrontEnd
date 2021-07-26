@@ -33,6 +33,7 @@ export class HomePage extends Component {
             vote_count: '',
             popularity: '',
             showModal: '',
+            poster: '',
 
 
         }
@@ -64,7 +65,8 @@ export class HomePage extends Component {
             vote_average: this.state.popularMovie[index].vote_average,
             vote_count: this.state.popularMovie[index].vote_count,
             popularity: this.state.popularMovie[index].popularity,
-            showModal: true
+            showModal: true,
+            poster: this.state.popularMovie[index].poster_path,
         })
         console.log(this.state.movieId);
         this.getTrailer()
@@ -81,7 +83,8 @@ export class HomePage extends Component {
             vote_average: this.state.nowPlayingMovie[index].vote_average,
             vote_count: this.state.nowPlayingMovie[index].vote_count,
             popularity: this.state.nowPlayingMovie[index].popularity,
-            showModal: true
+            showModal: true,
+            poster: this.state.nowPlayingMovie[index].poster_path,
         })
         console.log(this.state.movieId);
         this.getTrailer()
@@ -97,7 +100,9 @@ export class HomePage extends Component {
             vote_average: this.state.nowPlayingMovie[index].vote_average,
             vote_count: this.state.nowPlayingMovie[index].vote_count,
             popularity: this.state.nowPlayingMovie[index].popularity,
-            showModal: true
+            showModal: true,
+            poster: this.state.nowPlayingMovie[index].poster_path,
+            
         })
         console.log(this.state.movieId);
         this.getTrailer()
@@ -113,7 +118,8 @@ export class HomePage extends Component {
             vote_average: this.state.upcomingMovie[index].vote_average,
             vote_count: this.state.upcomingMovie[index].vote_count,
             popularity: this.state.upcomingMovie[index].popularity,
-            showModal: true
+            showModal: true,
+            poster: this.state.upcomingMovie[index].poster_path,
         })
         console.log(this.state.movieId);
         this.getTrailer()
@@ -129,11 +135,30 @@ export class HomePage extends Component {
             vote_average: this.state.movieSearchData[index].vote_average,
             vote_count: this.state.movieSearchData[index].vote_count,
             popularity: this.state.movieSearchData[index].popularity,
-            showModal: true
+            showModal: true,
+            poster: this.state.movieSearchData[index].poster_path,
         })
         console.log(this.state.movieId);
         this.getTrailer()
     }
+
+    getTrailerForTopRatedMovie = async (index) => {
+        await this.setState({
+            index: index,
+            movieId: this.state.topRatedMovie[index].id,
+            title: this.state.topRatedMovie[index].title,
+            overview: this.state.topRatedMovie[index].overview,
+            release_date: this.state.topRatedMovie[index].release_date,
+            vote_average: this.state.topRatedMovie[index].vote_average,
+            vote_count: this.state.topRatedMovie[index].vote_count,
+            popularity: this.state.topRatedMovie[index].popularity,
+            showModal: true,
+            poster: this.state.topRatedMovie[index].poster_path,
+        })
+        console.log(this.state.movieId);
+        this.getTrailer()
+    }
+
 
     getTrailer = async () => {
 
@@ -171,6 +196,7 @@ export class HomePage extends Component {
         })
     }
 
+
     render() {
   
         return (
@@ -207,6 +233,9 @@ export class HomePage extends Component {
                     trailerKey={this.state.trailerKey}
                     show={this.state.showModal}
                     handleClose={this.handleClose}
+                    addToFavorites ={this.addToFavorites}
+                    poster={this.state.poster}
+                    
                 />
             </>
         )
