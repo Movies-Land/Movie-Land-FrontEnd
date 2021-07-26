@@ -1,9 +1,5 @@
-
 .main-modal {
   border-radius: 0px;
-  
- 
-  
 }
 .iframeV {
   border-radius: 0px;
@@ -16,13 +12,11 @@
   padding: 0rem;
   background-color: #d0d0d0;
   width: 650px;
-  transform: translate(0% );
-  
+  transform: translate(-12%, 0%);
 }
 .footer-modal {
   background-color: #d0d0d0;
 }
-
 
 .movie-title {
   padding: 5px 10px;
@@ -63,13 +57,14 @@
   border-color: #d57932;
   font-weight: 700;
 }
-.btn:hover{
+.btn:hover {
   color: black;
   background-color: #d57932;
   border-color: #d0d0d0;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: #d57932;
   background-color: #d0d0d0;
   border-color: #dee2e6 #dee2e6 #fff;
