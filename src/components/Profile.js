@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Button } from 'react-bootstrap';
-import MovieModal from "./MovieModal";
+import ProfileModel from "./ProfileModel";
 // import '../components(CSS)/HomePage.css';
 
 class Profile extends Component {
@@ -23,7 +23,7 @@ class Profile extends Component {
       vote_count: '',
       popularity: '',
       showModal: '',
-      poster: '', 
+      poster: '',
 
     }
   }
@@ -42,51 +42,54 @@ class Profile extends Component {
   }
 
   deleteMovie = async (index) => {
-    const { user } = this.props.auth0; 
-    
-    let paramsObj = { userEmail: user.email } 
+    const { user } = this.props.auth0;
+
+    let paramsObj = { userEmail: user.email }
 
     let favoriteMovies = await axios.delete(`http://localhost:3001/deleteMovie/${index}`, { params: paramsObj })
-    this.setState({ favoriteMovies : favoriteMovies.data })
+    this.setState({
+      favoriteMovies: favoriteMovies.data,
+      showModal: false
+    })
   }
 
 
   trailerForFavMovie = async (index) => {
     await this.setState({
 
-        index: index,
-        movieId: this.state.favoriteMovies[index].id,
-        title: this.state.favoriteMovies[index].title,
-        overview: this.state.favoriteMovies[index].overview,
-        release_date: this.state.favoriteMovies[index].release_date,
-        vote_average: this.state.favoriteMovies[index].vote_average,
-        vote_count: this.state.favoriteMovies[index].vote_count,
-        popularity: this.state.favoriteMovies[index].popularity,
-        showModal: true,
-        poster: this.state.favoriteMovies[index].poster_path,
+      index: index,
+      movieId: this.state.favoriteMovies[index].movieId,
+      title: this.state.favoriteMovies[index].title,
+      overview: this.state.favoriteMovies[index].overview,
+      release_date: this.state.favoriteMovies[index].release_date,
+      vote_average: this.state.favoriteMovies[index].vote_average,
+      vote_count: this.state.favoriteMovies[index].vote_count,
+      popularity: this.state.favoriteMovies[index].popularity,
+      showModal: true,
+      poster: this.state.favoriteMovies[index].poster_path,
     })
-    console.log(this.state.movieId);
+    console.log(this.state.favoriteMovies);
     this.getTrailer()
-}
+  }
 
 
-getTrailer = async () => {
+  getTrailer = async () => {
 
     let url = `http://localhost:3001/movieTrailer?movieId=${this.state.movieId}`
 
     let trailerKey = await axios.get(url)
 
     this.setState({
-        trailerKey: trailerKey.data
+      trailerKey: trailerKey.data
     })
     console.log(this.state.trailerKey);
-}
+  }
 
-handleClose = () => {
-  this.setState({
+  handleClose = () => {
+    this.setState({
       showModal: false,
-  })
-}
+    })
+  }
 
 
   render() {
@@ -96,50 +99,46 @@ handleClose = () => {
       <>
         {isAuthenticated && (
           <>
-            <div>
-              <div> {user.name}</div>
-              <div> {user.email}</div>
-              <img src={user.picture} alt={user.name} />
-            </div>
 
-
+            <div> <h2>Welcome {user.name} To Your Profile</h2></div>
             <div className='searchDiv'>
               {this.state.show &&
                 this.state.favoriteMovies.map((movie, index) => {
                   return (
                     <>
-                    <Card key={index} style={{ width: '18rem' }} className='slider-card'>
-                      <Card.Img variant="top" className='card-image'
-                        onClick={() => this.trailerForFavMovie(index)}
-                        src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
-                      <div className='details'>
-                        <h2>{movie.title}</h2>
-                        <Button variant="primary" onClick={() => this.deleteMovie(index)}>Delete</Button>
+                      <Card key={index} style={{ width: '18rem' }} className='slider-card'>
+                        <Card.Img variant="top" className='card-image'
+                          onClick={() => this.trailerForFavMovie(index)}
+                          src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
+                        <div className='details'>
+                          <h2>{movie.title}</h2>
+                          {/* <Button variant="primary" onClick={() => this.deleteMovie(index)}>Delete</Button> */}
 
-                      </div>
-                      
-                    </Card>
-                    
+                        </div>
+
+                      </Card>
+
                     </>
                   )
                 })
               }
 
-               <MovieModal
-                    title={this.state.title}
-                    overview={this.state.overview}
-                    release_date={this.state.release_date}
-                    vote_average={this.state.vote_average}
-                    vote_count={this.state.vote_count}
-                    popularity={this.state.popularity}
-                    movieId={this.state.movieId}
-                    trailerKey={this.state.trailerKey}
-                    show={this.state.showModal}
-                    handleClose={this.handleClose}
-                    addToFavorites ={this.addToFavorites}
-                    poster={this.state.poster}
-                    
-                />
+              <ProfileModel
+                title={this.state.title}
+                overview={this.state.overview}
+                release_date={this.state.release_date}
+                vote_average={this.state.vote_average}
+                vote_count={this.state.vote_count}
+                popularity={this.state.popularity}
+                movieId={this.state.movieId}
+                trailerKey={this.state.trailerKey}
+                show={this.state.showModal}
+                handleClose={this.handleClose}
+                deleteMovie={this.deleteMovie}
+                poster={this.state.poster}
+                index={this.state.index}
+
+              />
             </div>
           </>
         )}

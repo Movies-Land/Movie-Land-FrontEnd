@@ -1,62 +1,13 @@
 import React, { Component } from 'react'
 import { Modal, Button, Card, ListGroup, ListGroupItem, Tab, Tabs, } from 'react-bootstrap'
-import { withAuth0 } from '@auth0/auth0-react';
-import axios from 'axios'
 
 
-export class MovieModal extends Component {
-
-
-    constructor(props) {
-        super(props)
-        this.state = {
-
-            currentMovieObject: {},
-            favoriteMovies: [],
-            showFav: true
-
-        }
-    }
-
-
-
-    addToFavorites = async () => {
-        await this.setState({
-            currentMovieObject: {
-
-                email: this.props.auth0.user.email,
-                title: this.props.title,
-                overview: this.props.overview,
-                release_date: this.props.release_date,
-                vote_average: this.props.vote_average,
-                vote_count: this.props.vote_count,
-                popularity: this.props.popularity,
-                movieId: this.props.movieId,
-                trailerKey: this.props.trailerKey,
-                poster: this.props.poster,
-
-            }
-
-        })
- 
-        console.log( this.state.currentMovieObject);
-        let favoriteMovies = await axios.post('http://localhost:3001/favoriteMovies', this.state.currentMovieObject);
-
-        this.setState({
-            favoriteMovies: favoriteMovies.data,
-            showFav:false
-        })
-
-        console.log(this.state.favoriteMovies)
-
-    }
-
-
+export class ProfileModel extends Component {
 
     render() {
-
         return (
-            <Modal show={this.props.show} onHide={this.props.handleClose}>
+            <div>
+                 <Modal show={this.props.show} onHide={this.props.handleClose}>
                 <Modal.Header>
                     <Card.Title>{this.props.title}</Card.Title>
                 </Modal.Header>
@@ -84,16 +35,15 @@ export class MovieModal extends Component {
                     <Button variant="secondary" onClick={this.props.handleClose}>
                         Close
                     </Button>
-                    {/* this.state.favoriteMovies.filter(element => { if(this.state.currentMovieObject.movieId === element.movieId ){return true} else {return false}} )? */}
-                   {this.state.showFav && this.props.auth0.isAuthenticated ?  <Button variant="secondary" onClick={this.addToFavorites}>
-                        Add To Favorites
-                    </Button>:''} 
-
-                   
+                    <Button variant="secondary" onClick={() => this.props.deleteMovie(this.props.index)}>
+                        Remove From Favorites
+                    </Button>
                 </Modal.Footer>
             </Modal>
+            </div>
         )
     }
 }
 
-export default withAuth0(MovieModal)
+export default ProfileModel
+
