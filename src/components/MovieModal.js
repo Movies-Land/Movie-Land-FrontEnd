@@ -22,7 +22,7 @@ export class MovieModal extends Component {
 
             currentMovieObject: {},
             favoriteMovies: [],
-            showFav: true
+            
 
         }
     }
@@ -53,7 +53,7 @@ export class MovieModal extends Component {
 
         this.setState({
             favoriteMovies: favoriteMovies.data,
-            showFav:false
+            
         })
 
         console.log(this.state.favoriteMovies)
@@ -118,7 +118,7 @@ export class MovieModal extends Component {
           <Button variant="secondary" onClick={this.props.handleClose}>
             Close
           </Button>
-          {this.state.showFav && this.props.auth0.isAuthenticated ?  <Button variant="secondary" onClick={this.addToFavorites}>
+          {this.props.auth0.isAuthenticated ?  <Button variant="secondary" onClick={this.addToFavorites}>
                         Add To Favorites
                     </Button>:''} 
         </Modal.Footer>

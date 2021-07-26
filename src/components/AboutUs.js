@@ -72,7 +72,9 @@ class AboutUs extends Component {
                             <Card.Title className="teamMemberName" style={{}}> Ibrahem Sarayrah  </Card.Title>
                             <Card.Text>
 
-                                Full Stack Developer &&
+                                Full Stack Developer && 
+                                <br></br>
+                                Marketing
                             </Card.Text>
                             <Card.Link className="CradLink" href="https://github.com/IbrahemSarayrah"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
                             <Card.Link className="CradLink" href="https://www.linkedin.com/in/ibrahem-sarayrah-3a4277210"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
@@ -114,39 +116,39 @@ class AboutUs extends Component {
                             <Card.Text>
 
                                 Full Stack Developer &&
-
-                                Physicist
+                                <br></br>
+                                    Physicist
 
                             </Card.Text>
-                            <Card.Link className="CradLink" href="https://github.com/Jana998-alt"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
-                            <Card.Link className="CradLink" href="https://www.linkedin.com/in/jana-abdelkader"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
+                                <Card.Link className="CradLink" href="https://github.com/Jana998-alt"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
+                                <Card.Link className="CradLink" href="https://www.linkedin.com/in/jana-abdelkader"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
                         </Card.Body>
 
                     </Card>
                 </div>
-                <div className="inner-div">
-                    <Card style={{ width: '18rem' }} className='AboutUs-card'>
+                    <div className="inner-div">
+                        <Card style={{ width: '18rem' }} className='AboutUs-card'>
 
-                        <Card.Img variant="top" className='AboutUS-image'
+                            <Card.Img variant="top" className='AboutUS-image'
 
-                            src={abrar} />
+                                src={abrar} />
 
-                        <Card.Body>
-                            <Card.Title className="teamMemberName" style={{}}> Abrar algour</Card.Title>
-                            <Card.Text>
+                            <Card.Body>
+                                <Card.Title className="teamMemberName" style={{}}> Abrar algour</Card.Title>
+                                <Card.Text>
 
-                                Full Stack Developer &&
-                                Civil engineer
-                            </Card.Text>
-                            <Card.Link className="CradLink" href="https://github.com/abrar189"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
-                            <Card.Link className="CradLink" href="https://www.linkedin.com/in/abrar-algour-51a2141b6"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
-                        </Card.Body>
+                                    Full Stack Developer &&
+                                    Civil engineer
+                                </Card.Text>
+                                <Card.Link className="CradLink" href="https://github.com/abrar189"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
+                                <Card.Link className="CradLink" href="https://www.linkedin.com/in/abrar-algour-51a2141b6"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
+                            </Card.Body>
 
-                    </Card>
+                        </Card>
+                    </div>
                 </div>
-            </div>
-        )
+                )
     }
 }
 
-export default AboutUs
+                export default AboutUs
