@@ -32,10 +32,13 @@ export class MovieModal extends Component {
                 popularity: this.props.popularity,
                 movieId: this.props.movieId,
                 trailerKey: this.props.trailerKey,
+                poster: this.props.poster,
 
             }
-        })
 
+        })
+ 
+        console.log( this.state.currentMovieObject);
         let favoriteMovies = await axios.post('http://localhost:3001/favoriteMovies', this.state.currentMovieObject);
 
         this.setState({
