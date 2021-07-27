@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, Card, ListGroup, ListGroupItem, Tab, Tabs, } from 'react-bootstrap'
+import { Modal, Button,  ListGroup, ListGroupItem, Tab, Tabs, } from 'react-bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components(CSS)/modal.css";
 

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
-import { Card, Button } from "react-bootstrap";
+
+import { Card,  } from 'react-bootstrap';
+
 import ProfileModel from "./ProfileModel";
 // import '../components(CSS)/HomePage.css';
 import "../components(CSS)/profile.css";
@@ -29,10 +31,10 @@ class Profile extends Component {
 
   componentDidMount = async () => {
     const { user } = this.props.auth0;
-    let favoriteMovies = await axios.get(
-      `http://localhost:3001/favoriteMovies?userEmail=${user.email}`
-    );
-    console.log("favoriteMovies" + favoriteMovies);
+
+    let favoriteMovies = await axios.get(`${process.env.REACT_APP_HOST}/favoriteMovies?userEmail=${user.email}`);
+    console.log('favoriteMovies' + favoriteMovies);
+
 
     await this.setState({
       favoriteMovies: favoriteMovies.data,
@@ -47,10 +49,9 @@ class Profile extends Component {
 
     let paramsObj = { userEmail: user.email };
 
-    let favoriteMovies = await axios.delete(
-      `http://localhost:3001/deleteMovie/${index}`,
-      { params: paramsObj }
-    );
+
+    let favoriteMovies = await axios.delete(`${process.env.REACT_APP_HOST}/deleteMovie/${index}`, { params: paramsObj })
+
     this.setState({
       favoriteMovies: favoriteMovies.data,
       showModal: false,
@@ -77,7 +78,11 @@ class Profile extends Component {
   getTrailer = async () => {
     let url = `http://localhost:3001/movieTrailer?movieId=${this.state.movieId}`;
 
-    let trailerKey = await axios.get(url);
+
+    let url = `${process.env.REACT_APP_HOST}/movieTrailer?movieId=${this.state.movieId}`
+
+    let trailerKey = await axios.get(url)
+
 
     this.setState({
       trailerKey: trailerKey.data,

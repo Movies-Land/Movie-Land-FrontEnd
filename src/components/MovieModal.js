@@ -15,42 +15,71 @@ import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
 export class MovieModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentMovieObject: {},
-      favoriteMovies: [],
-    };
-  }
 
-  addToFavorites = async () => {
-    await this.setState({
-      currentMovieObject: {
-        email: this.props.auth0.user.email,
-        title: this.props.title,
-        overview: this.props.overview,
-        release_date: this.props.release_date,
-        vote_average: this.props.vote_average,
-        vote_count: this.props.vote_count,
-        popularity: this.props.popularity,
-        movieId: this.props.movieId,
-        trailerKey: this.props.trailerKey,
-        poster: this.props.poster,
-      },
-    });
+    constructor(props) {
+        super(props)
+        this.state = {
 
-    console.log(this.state.currentMovieObject);
-    let favoriteMovies = await axios.post(
-      "http://localhost:3001/favoriteMovies",
-      this.state.currentMovieObject
-    );
+            currentMovieObject: {},
+            favoriteMovies: [],
+            hidden:false
+            
 
-    this.setState({
-      favoriteMovies: favoriteMovies.data,
-    });
+        }
+    }
 
-    console.log(this.state.favoriteMovies);
-  };
+
+
+    addToFavorites = async () => {
+        await this.setState({
+            currentMovieObject: {
+
+                email: this.props.auth0.user.email,
+                title: this.props.title,
+                overview: this.props.overview,
+                release_date: this.props.release_date,
+                vote_average: this.props.vote_average,
+                vote_count: this.props.vote_count,
+                popularity: this.props.popularity,
+                movieId: this.props.movieId,
+                trailerKey: this.props.trailerKey,
+                poster: this.props.poster,
+
+            }
+
+        })
+ 
+        console.log( this.state.currentMovieObject);
+        let favoriteMovies = await axios.post(`${process.env.REACT_APP_HOST}/favoriteMovies`, this.state.currentMovieObject);
+
+        this.setState({
+            favoriteMovies: favoriteMovies.data,
+            hidden:true
+            
+        })
+
+        if (this.state.hidden) {
+          document.getElementById('Fav-Button').style.visibility='hidden';
+          
+        }else{
+          document.getElementById('Fav-Button').style.visibility='visibile';
+        }
+        // if (this.state.favoriteMovies.movies.title) {
+        //   document.getElementById('Fav-Button').style.visibility='hidden';
+          
+        // }else{
+        //   document.getElementById('Fav-Button').style.visibility='visibile';
+        // }
+
+        
+
+        console.log(this.state.favoriteMovies.movies)
+
+    }
+
+
+
+
   render() {
     return (
       <Modal
@@ -118,6 +147,7 @@ export class MovieModal extends Component {
               ""
             )}
           </Modal.Footer>
+
         </Modal.Body>
       </Modal>
     );
