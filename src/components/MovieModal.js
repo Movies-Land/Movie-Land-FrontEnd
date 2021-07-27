@@ -136,16 +136,16 @@ export class MovieModal extends Component {
             className="footer-modal"
             style={{ borderTop: "0px solid #dee2e6" }}
           >
-            <Button variant="secondary" onClick={this.props.handleClose}>
-              Close
-            </Button>
             {this.props.auth0.isAuthenticated ? (
-              <Button variant="secondary" onClick={this.addToFavorites}>
+              <Button id='Fav-Button' variant="secondary" onClick={this.addToFavorites}>
                 Add To Favorites
               </Button>
             ) : (
               ""
             )}
+            <Button variant="secondary" onClick={this.props.handleClose}>
+              Close
+            </Button>
           </Modal.Footer>
 
         </Modal.Body>
