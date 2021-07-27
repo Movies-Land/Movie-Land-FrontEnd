@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components(CSS)/modal.css";
@@ -12,10 +11,11 @@ import {
   Tabs,
 } from "react-bootstrap";
 
-import { withAuth0 } from '@auth0/auth0-react';
-import axios from 'axios'
+import { withAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
 export class MovieModal extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -79,6 +79,7 @@ export class MovieModal extends Component {
 
 
 
+
   render() {
     return (
       <Modal
@@ -131,17 +132,22 @@ export class MovieModal extends Component {
               </ListGroup>
             </Tab>
           </Tabs>
-        <Modal.Footer
-          className="footer-modal"
-          style={{ borderTop: "0px solid #dee2e6" }}
-        >
-          {this.props.auth0.isAuthenticated ?  <Button id='Fav-Button' variant="secondary" onClick={this.addToFavorites}>
-                        Add To Favorites
-                    </Button>:''} 
-          <Button  variant="secondary" onClick={this.props.handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
+          <Modal.Footer
+            className="footer-modal"
+            style={{ borderTop: "0px solid #dee2e6" }}
+          >
+            <Button variant="secondary" onClick={this.props.handleClose}>
+              Close
+            </Button>
+            {this.props.auth0.isAuthenticated ? (
+              <Button variant="secondary" onClick={this.addToFavorites}>
+                Add To Favorites
+              </Button>
+            ) : (
+              ""
+            )}
+          </Modal.Footer>
+
         </Modal.Body>
       </Modal>
     );

@@ -52,15 +52,15 @@
 
 .btn-secondary,
 .btn {
-  color: #d57932;
-  background-color: #201e23;
-  border-color: #d57932;
+  color: black;
+  background-color: #d57932;
+  border: none;
   font-weight: 700;
 }
 .btn:hover {
-  color: black;
-  background-color: #d57932;
-  border-color: #d0d0d0;
+  color: #d57932;
+  background-color: #201e23;
+  border-color: #d57932;
 }
 
 .nav-tabs .nav-item.show .nav-link,

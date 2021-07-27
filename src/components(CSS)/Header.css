@@ -29,7 +29,7 @@
   width: 160px;
   position: absolute;
   top: -10px;
-  left: 45px;
+  left: 25px;
 }
 .logoImg .img {
   width: 160px;
@@ -57,11 +57,13 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  align-items: center;
 }
 .links-nav {
   color: #d0d0d0;
   text-decoration: none;
   font-weight: 700;
+  font-size: 20px;
 }
 .links-nav:hover {
   color: rgb(170 97 40);

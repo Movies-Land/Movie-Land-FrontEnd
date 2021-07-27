@@ -21,7 +21,7 @@ export class Search extends Component {
                 textAlign: "center",
                 padding: "10px",
                 backgroundColor: "#d0d0d0",
-                borderRadius: "20px",
+                borderRadius: "15px",
                 borderColor: "transparent",
               }}
             />
@@ -35,7 +35,7 @@ export class Search extends Component {
               left: "458px",
               padding: "9px",
               backgroundColor: "rgb(208 208 208)",
-              borderRadius: "20px",
+              borderRadius: "15px",
               borderColor: "transparent",
               //   color: "rgb(208 208 208)",
               //   fontWeight: "700",

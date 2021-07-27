@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Card } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Card } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../components(CSS)/HomePage.css';
+import "../components(CSS)/HomePage.css";
 
 export class UpcomingMovie extends Component {
   render() {
@@ -21,48 +21,53 @@ export class UpcomingMovie extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
-          }
+            dots: true,
+          },
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            initialSlide: 2
-          }
+            initialSlide: 2,
+          },
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
     return (
-      <div className='slider-div'>
-        {this.props.show && <h2> Upcoming Movie </h2>}
-        <Slider {...settings} style={{ margin: '30px' }}>
+      <div className="slider-div">
+        {this.props.show && <h2 className="title-2"> Upcoming Movie </h2>}
+        <Slider {...settings} style={{ margin: "30px" }}>
           {this.props.show &&
             this.props.upcomingMovie.map((movie, index) => {
               return (
-
-                <Card key={index} style={{ width: '18rem' }} className='slider-card'>
-                  <Card.Img variant="top" className='card-image'
+                <Card
+                  key={index}
+                  style={{ width: "18rem" }}
+                  className="slider-card"
+                >
+                  <Card.Img
+                    variant="top"
+                    className="card-image"
                     onClick={() => this.props.getTrailerForUpcomingMovie(index)}
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-                  <div className='details'>
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  />
+                  <div className="details">
                     <h2>{movie.title}</h2>
                   </div>
                 </Card>
-              )
-            })
-          }
+              );
+            })}
         </Slider>
       </div>
-    )
+    );
   }
 }
 

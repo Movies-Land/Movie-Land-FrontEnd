@@ -220,7 +220,7 @@ export class HomePage extends Component {
                     <UpcomingMovie upcomingMovie={this.state.upcomingMovie} show={this.props.show} getTrailerForUpcomingMovie={this.getTrailerForUpcomingMovie} />
                 </MovieStyle>
 
-                <SearchMovie movieSearchData={this.state.movieSearchData} showSearch={this.props.showSearch} getTrailerForSearch={this.getTrailerForSearch} />
+                <SearchMovie targetSearch={this.state.targetSearch} movieSearchData={this.state.movieSearchData} showSearch={this.props.showSearch} getTrailerForSearch={this.getTrailerForSearch} />
 
                 <MovieModal
                     title={this.state.title}
