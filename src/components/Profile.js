@@ -76,7 +76,7 @@ class Profile extends Component {
   };
 
   getTrailer = async () => {
-    let url = `http://localhost:3001/movieTrailer?movieId=${this.state.movieId}`;
+    
 
 
     let url = `${process.env.REACT_APP_HOST}/movieTrailer?movieId=${this.state.movieId}`
