@@ -1,0 +1,29 @@
+@keyframes blinkAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink-profile {
+  animation-name: blinkAnimation;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+
+  position: absolute;
+  margin-top: -360px;
+  font-family: cursive;
+  color: white;
+  transform: translate(30%, 80%);
+}
+.text-profile {
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+}

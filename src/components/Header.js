@@ -22,7 +22,11 @@ class Header extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Link onClick={this.props.handleCloseSearch} className="links-nav" to="/">
+                <Link
+                  onClick={this.props.handleCloseSearch}
+                  className="links-nav"
+                  to="/"
+                >
                   Home
                 </Link>
 
