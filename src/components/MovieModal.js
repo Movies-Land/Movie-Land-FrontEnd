@@ -22,6 +22,7 @@ export class MovieModal extends Component {
 
             currentMovieObject: {},
             favoriteMovies: [],
+            hidden:false
             
 
         }
@@ -49,16 +50,35 @@ export class MovieModal extends Component {
         })
  
         console.log( this.state.currentMovieObject);
-        let favoriteMovies = await axios.post('http://localhost:3001/favoriteMovies', this.state.currentMovieObject);
+        let favoriteMovies = await axios.post(`${process.env.REACT_APP_HOST}/favoriteMovies`, this.state.currentMovieObject);
 
         this.setState({
             favoriteMovies: favoriteMovies.data,
+            hidden:true
             
         })
 
-        console.log(this.state.favoriteMovies)
+        if (this.state.hidden) {
+          document.getElementById('Fav-Button').style.visibility='hidden';
+          
+        }else{
+          document.getElementById('Fav-Button').style.visibility='visibile';
+        }
+        // if (this.state.favoriteMovies.movies.title) {
+        //   document.getElementById('Fav-Button').style.visibility='hidden';
+          
+        // }else{
+        //   document.getElementById('Fav-Button').style.visibility='visibile';
+        // }
+
+        
+
+        console.log(this.state.favoriteMovies.movies)
 
     }
+
+
+
   render() {
     return (
       <Modal
@@ -115,12 +135,12 @@ export class MovieModal extends Component {
           className="footer-modal"
           style={{ borderTop: "0px solid #dee2e6" }}
         >
-          <Button variant="secondary" onClick={this.props.handleClose}>
-            Close
-          </Button>
-          {this.props.auth0.isAuthenticated ?  <Button variant="secondary" onClick={this.addToFavorites}>
+          {this.props.auth0.isAuthenticated ?  <Button id='Fav-Button' variant="secondary" onClick={this.addToFavorites}>
                         Add To Favorites
                     </Button>:''} 
+          <Button  variant="secondary" onClick={this.props.handleClose}>
+            Close
+          </Button>
         </Modal.Footer>
         </Modal.Body>
       </Modal>
