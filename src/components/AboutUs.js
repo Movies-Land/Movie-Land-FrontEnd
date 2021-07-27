@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
-import { Card } from 'react-bootstrap'
-import img1 from '../img/poster1.jpg'
+import React, { Component } from 'react';
+import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import '../components(CSS)/AboutUs.css'
-import ibrahim from '../img/ibrahim.jpg'
-import mohammad from '../img/mohammad.jpg'
-import abrar from '../img/abrar.jpg'
-import mahmoud from '../img/mahmoud.jpg'
-import suad from '../img/new1.jpg'
-import jana from '../img/jana.jpg'
+import '../components(CSS)/AboutUs.css';
+import ibrahim from '../img/ibrahim.jpg';
+import mohammad from '../img/mohammad.jpg';
+import abrar from '../img/abrar.jpg';
+import mahmoud from '../img/mahmoud.jpg';
+import suad from '../img/new1.jpg';
+import jana from '../img/jana.jpg';
 class AboutUs extends Component {
     render() {
         return (

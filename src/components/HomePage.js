@@ -40,10 +40,10 @@ export class HomePage extends Component {
     }
 
     componentDidMount = async () => {
-        let popularMovie = await axios.get(`http://localhost:3001/popularMovie`)
-        let nowPlayingMovie = await axios.get(`http://localhost:3001/nowPlayingMovie`)
-        let topRatedMovie = await axios.get(`http://localhost:3001/topRatedMovie`)
-        let upcomingMovie = await axios.get(`http://localhost:3001/upcomingMovie`)
+        let popularMovie = await axios.get(`${process.env.REACT_APP_HOST}/popularMovie`)
+        let nowPlayingMovie = await axios.get(`${process.env.REACT_APP_HOST}/nowPlayingMovie`)
+        let topRatedMovie = await axios.get(`${process.env.REACT_APP_HOST}/topRatedMovie`)
+        let upcomingMovie = await axios.get(`${process.env.REACT_APP_HOST}/upcomingMovie`)
 
         await this.setState({
             popularMovie: popularMovie.data,
@@ -162,7 +162,7 @@ export class HomePage extends Component {
 
     getTrailer = async () => {
 
-        let url = `http://localhost:3001/movieTrailer?movieId=${this.state.movieId}`
+        let url = `${process.env.REACT_APP_HOST}/movieTrailer?movieId=${this.state.movieId}`
 
         let trailerKey = await axios.get(url)
 
@@ -178,7 +178,7 @@ export class HomePage extends Component {
         await this.setState({
             targetSearch: event.target.movie.value,
         })
-        let url = `http://localhost:3001/searchForMovie?search=${this.state.targetSearch}`
+        let url = `${process.env.REACT_APP_HOST}/searchForMovie?search=${this.state.targetSearch}`
         let movieSearchData = await axios.get(url);
 
         this.setState({
