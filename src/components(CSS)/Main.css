@@ -19,12 +19,16 @@
   margin-top: 2%;
   margin-bottom: -2%;
   color: #e8f0fe;
+  border-bottom: solid 2px #d57932;
+  margin: 0px 0% 1px 20%;
+  width: 60%
 }
 .profile-titel {
-  font-size: 23px;
+  font-size: 33px;
   font-weight: 700;
   color: #e8f0fe;
   width: 100%;
-  margin: 0 0% 1px 0;
   border-bottom: solid 2px #d57932;
+  margin: 0 0% 1px 0;
+  text-align: center;
 }

@@ -113,12 +113,12 @@ class Profile extends Component {
               {this.state.favoriteMovies.length === 0
                 ? ""
                 : this.state.show && (
-                    <h2 className="profile-titel">You Favorite movies.</h2>
+                    <h2 className="profile-titel">Your Favorite Movies</h2>
                   )}
 
               {this.state.favoriteMovies.length === 0 ? (
                 <h2 className="profile-titel">
-                  You don't have any Favorite movie yet.
+                  You Don't Have Any Favorite Movie Yet
                 </h2>
               ) : (
                 this.state.show &&
