@@ -7,7 +7,7 @@ export class SearchMovie extends Component {
     return (
       <div>
         {this.props.showSearch && (
-          <p className="search-titel">{`Results of : ${this.props.targetSearch} `}</p>
+          <h2  className="search-titel">{`Results of : ${this.props.targetSearch} `}</h2>
         )}
         <div className="searchDiv">
           {this.props.showSearch &&
