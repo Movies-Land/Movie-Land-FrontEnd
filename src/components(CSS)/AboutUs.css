@@ -1,0 +1,80 @@
+.AboutUs-MainCard{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 92%;
+    /* padding: 20px 0px; */
+    padding-left: 127px;
+    padding-top: 30px;
+}
+.AboutUs-card{
+    margin-bottom: 30px;
+    background: rgb(146,145,154);
+    background: linear-gradient(90deg, rgba(146,145,154,1) 0%, rgba(87,92,93,1) 100%);
+    /* box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green; */
+    border-radius: 30px 0px;
+
+}
+.AboutUs-card:hover{
+    /* -webkit-transform: translateY(-180px);
+            transform: translateY(-100px);
+    -webkit-transition: all .9s;
+    transition: all .9s; */
+}
+.card-img, .card-img-top{
+    /* filter:brightness(.3); */
+    border-radius: 30px 0px;
+    
+}
+.card-img, .card-img-top:hover{
+    filter: brightness(.7);
+}
+
+.teamMemberName{
+    font-family: cursive;
+    
+}
+.CradLink{
+    font-size: 30px;
+    color: #1b1b1b;
+    
+}
+.CradLink:hover{
+    color: #d57932;
+    box-shadow: 0 0 5px #864c1f;
+    text-shadow: 0 0 5px #8d4813;
+
+}
+.inner-div{
+    text-align: center;
+}
+
+@keyframes blinkAnimation {
+    0% {
+      opacity: 1;
+    
+    }
+    50% {
+      opacity: 0;
+    
+    }
+    100% {
+      opacity: 1;
+     
+    }
+  }
+  
+  .blink {
+    animation-name: blinkAnimation;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    font-size: 70px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    margin-top: -360px;
+    font-family: cursive;
+    color: white;
+  }

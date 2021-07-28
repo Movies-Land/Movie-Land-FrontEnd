@@ -1,0 +1,89 @@
+.Box {
+  padding: 10px 5px;
+  background: #242525;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /*  */
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center; */
+
+  /* @media (max-width: 1000px) {
+    padding: 70px 30px;
+  } */
+}
+.sc-dlnjwi,
+.ezLAVi,
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.Container-footer {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center; */
+
+  background: #373c41;
+  width: 100%;
+}
+
+.copyRight {
+  /* width: 234px; */
+  /* text-align: center; */
+}
+.links {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 0px));
+  grid-gap: 0px; */
+}
+.images {
+  padding: 0px 10px;
+  width: 70px;
+}
+.images:hover {
+  /* color: #d57932; */
+}
+
+/* .xosqW {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+} */
+
+.FooterLink {
+  font-size: 35px;
+  color: #d0d0d0;
+}
+.FooterLink :hover {
+  color: #d57932;
+  box-shadow: 0 0 5px #d57932;
+  text-shadow: 0 0 5px #d57932;
+}
+.logo-footer {
+  width: 120px;
+  transform: translate(275%, 0px);
+}
+.links-contaner {
+  /* background: wheat; */
+  width: 375px;
+
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Copy-Right {
+  padding: 0px 0px 0 10px;
+  color: #d0d0d0;
+  /* font-family: fangsong; */
+  font-size: larger;
+}
