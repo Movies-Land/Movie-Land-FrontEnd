@@ -22,23 +22,26 @@ class AboutUs extends Component {
 
                         <Card.Img variant="top" className='AboutUS-image'
 
-                            src={mohammad} />
+                            src={mahmoud} />
 
                         <Card.Body>
-                            <Card.Title className="teamMemberName" style={{ fontFamily: 'cursive' }}> Mohammad Atta</Card.Title>
+                            <Card.Title className="teamMemberName" style={{}}>
+                                Mahmoud Khader </Card.Title>
+                                <Card.Text>
+                                    Team Leader
+                                </Card.Text>
                             <Card.Text>
-                                Full Stack Developer &&
-                                Electrical Power Engineer
-                            </Card.Text>
-                            <div className="details-About">
-                                <Card.Link className="CradLink" href="https://github.com/mr-atta"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
-                                <Card.Link className="CradLink" href="https://www.linkedin.com/in/mohammad-atta-"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
-                            </div>
 
+                                Full Stack Developer &&
+                                Civil engineer
+                            </Card.Text>
+                            <Card.Link className="CradLink" href="https://github.com/Mahmoud-Khader"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
+                            <Card.Link className="CradLink" href="https://www.linkedin.com/in/mahmoud-khader-432964131/"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
                         </Card.Body>
 
                     </Card>
                 </div>
+                
 
                 <div className="inner-div">
                     <Card style={{ width: '18rem' }} className='AboutUs-card'>
@@ -49,6 +52,9 @@ class AboutUs extends Component {
 
                         <Card.Body>
                             <Card.Title className="teamMemberName" style={{}}> Suad Talafha </Card.Title>
+                            <Card.Text>
+                                    Team Member
+                                </Card.Text>
                             <Card.Text>
                                 Full Stack Developer &&
                                 Renewable energy engineer
@@ -70,6 +76,9 @@ class AboutUs extends Component {
                         <Card.Body>
                             <Card.Title className="teamMemberName" style={{}}> Ibrahem Sarayrah  </Card.Title>
                             <Card.Text>
+                                    Team Member
+                                </Card.Text>
+                            <Card.Text>
 
                                 Full Stack Developer && 
                                 <br></br>
@@ -86,18 +95,22 @@ class AboutUs extends Component {
 
                         <Card.Img variant="top" className='AboutUS-image'
 
-                            src={mahmoud} />
+                            src={mohammad} />
 
                         <Card.Body>
-                            <Card.Title className="teamMemberName" style={{}}>
-                                Mahmoud Khader </Card.Title>
+                            <Card.Title className="teamMemberName" style={{ fontFamily: 'cursive' }}> Mohammad Atta</Card.Title>
                             <Card.Text>
-
+                                    Team Member
+                                </Card.Text>
+                            <Card.Text>
                                 Full Stack Developer &&
-                                Civil engineer
+                                Electrical Power Engineer
                             </Card.Text>
-                            <Card.Link className="CradLink" href="https://github.com/Mahmoud-Khader"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
-                            <Card.Link className="CradLink" href="https://www.linkedin.com/in/mahmoud-khader-432964131/"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
+                            <div className="details-About">
+                                <Card.Link className="CradLink" href="https://github.com/mr-atta"><FontAwesomeIcon icon={["fab", "github"]} /></Card.Link>
+                                <Card.Link className="CradLink" href="https://www.linkedin.com/in/mohammad-atta-"><FontAwesomeIcon icon={["fab", "linkedin"]} /></Card.Link>
+                            </div>
+
                         </Card.Body>
 
                     </Card>
@@ -112,6 +125,9 @@ class AboutUs extends Component {
                         <Card.Body>
                             <Card.Title className="teamMemberName" > Jana Abdelkader
                             </Card.Title>
+                            <Card.Text>
+                                    Team Member
+                                </Card.Text>
                             <Card.Text>
 
                                 Full Stack Developer &&
@@ -134,6 +150,9 @@ class AboutUs extends Component {
 
                             <Card.Body>
                                 <Card.Title className="teamMemberName" style={{}}> Abrar algour</Card.Title>
+                                <Card.Text>
+                                    Team Member
+                                </Card.Text>
                                 <Card.Text>
 
                                     Full Stack Developer &&
